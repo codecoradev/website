@@ -1,0 +1,8 @@
+name = "codecora-router"
+main = "worker/index.js"
+compatibility_date = "2024-01-01"
+
+# Routes — worker handles all traffic to codecora.dev
+routes = [
+  { pattern = "codecora.dev/*", zone_name = "codecora.dev" }
+]
