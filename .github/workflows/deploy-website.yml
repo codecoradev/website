@@ -49,10 +49,13 @@ jobs:
           preCommands: npx wrangler pages project create codecora-dev --production-branch=main || true
           command: pages deploy .vitepress/dist/ --project-name=codecora-dev --commit-dirty=true --branch=main
 
-  # Deploy Worker router (wrangler handles service bindings)
+  # Deploy Worker router (only after Pages projects exist)
+  # NOTE: First deploy will fail if cora/trapfall Pages not yet created.
+  # Merge their PRs first, then re-run this workflow.
   deploy-worker:
     runs-on: ubuntu-latest
     needs: deploy-pages
+    if: ${{ github.event_name == 'workflow_dispatch' }}
     steps:
       - uses: actions/checkout@v6
 
