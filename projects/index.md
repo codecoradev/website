@@ -4,9 +4,7 @@ Open-source developer tools built for the AI agent era.
 
 ---
 
-<div class="project-grid">
-
-## [🧠 Uteke](https://uteke.codecora.dev)
+## [🧠 Uteke](/docs/uteke/)
 
 **The Brain for Your AI** — Offline-first semantic memory engine for AI agents.
 
@@ -16,54 +14,75 @@ Open-source developer tools built for the AI agent era.
 | **Install** | `curl -sSL https://raw.githubusercontent.com/codecoradev/uteke/main/install.sh \| sh` |
 | **License** | Apache 2.0 |
 | **Stars** | ![GitHub stars](https://img.shields.io/github/stars/codecoradev/uteke?style=social) |
+| **Version** | ![Crates.io](https://img.shields.io/crates/v/uteke.svg) |
 
-Single binary, zero dependencies, zero API keys. Hybrid search (vector + FTS5), time-travel queries, relationship graphs, multi-agent namespaces, and smart memory decay — all running entirely on your machine.
+Single binary, zero dependencies, zero API keys. Your AI agent's memories never leave your machine.
 
-**Key features:** Hybrid search · Rooms · Time-travel queries · Relationship graph · Smart decay · Pluggable embeddings · Multi-agent namespaces · 30ms recall
+**Key features:**
+- **Hybrid search** — Vector (ONNX 768d) + FTS5 full-text, merged by Reciprocal Rank Fusion
+- **Rooms** — Group memories by context (meetings, projects) with author attribution
+- **Time-travel queries** — Recall memories as they existed at any point in time
+- **Relationship graph** — Typed edges between memories (supersedes, contradicts, references)
+- **Smart decay** — Composite importance scoring, pin critical memories
+- **Pluggable embeddings** — ONNX (default), future OpenAI/Ollama backends
+- **Multi-agent namespaces** — Fully isolated memory per agent, zero overhead
+- **30ms recall** — Library mode, ~42ms server mode
 
-[Read the docs →](https://uteke.codecora.dev)
+[Read the docs →](/docs/uteke/) · [GitHub →](https://github.com/codecoradev/uteke)
 
 ---
 
-## [🔍 Cora CLI](https://github.com/codecoradev/cora-cli)
+## [🔍 Cora CLI](/docs/cora/)
 
 **AI Code Review, Your Way** — CLI-first code review with BYOK.
 
 | | |
 |---|---|
 | **Language** | Rust |
+| **Install** | `curl -fsSL https://raw.githubusercontent.com/codecoradev/cora-cli/main/install.sh \| sh` |
 | **License** | MIT |
 | **Stars** | ![GitHub stars](https://img.shields.io/github/stars/codecoradev/cora-cli?style=social) |
+| **Version** | ![Crates.io](https://img.shields.io/crates/v/cora-cli.svg) |
 
-Review code with any OpenAI-compatible LLM. Supports diff review, full scan, branch comparison, and pre-commit hooks. Fully offline-capable — your code never leaves your machine.
+Review code with any LLM — OpenAI, Anthropic, Groq, Ollama, or any OpenAI-compatible API. Works in your terminal, CI/CD, git hooks, or directly inside AI coding agents.
 
-**Key features:** BYOK · Diff/scan/branch modes · Pre-commit hooks · CLI-first · Zero cloud dependency
+**Key features:**
+- **Multi-LLM** — Any OpenAI-compatible API, no lock-in
+- **Deterministic scanners** — 11 security + 12 secret detection patterns, no LLM needed
+- **Pre-commit hooks** — Catch issues before they reach CI
+- **SARIF output** — Upload to GitHub Code Scanning
+- **Quality gate** — Configurable pass/fail thresholds for CI enforcement
+- **MCP server** — Expose rules to AI agents (Claude Code, Cursor, Copilot)
+- **Diff-hash caching** — Skip repeat reviews automatically
+- **Custom rule engine** — Write your own regex rules in `.cora.yaml`
 
-[View on GitHub →](https://github.com/codecoradev/cora-cli)
+[Read the docs →](/docs/cora/) · [GitHub →](https://github.com/codecoradev/cora-cli)
 
 ---
 
-## [🪤 TrapFall](https://github.com/codecoradev/trapfall)
+## [🪤 TrapFall](/docs/trapfall/)
 
-**Lightweight Error Capture** — Self-hosted, Sentry-compatible.
+**Self-Hosted Error Capture** — Sentry-compatible, lightweight, and fast.
 
 | | |
 |---|---|
 | **Language** | Rust + SvelteKit 5 |
-| **License** | MIT |
+| **Install** | `docker pull ghcr.io/codecoradev/trapfall:latest` |
+| **License** | Apache 2.0 |
+| **Image size** | ![Docker](https://img.shields.io/docker/image-size/codecoradev/trapfall/latest) |
+| **Version** | Latest |
 
-Drop-in Sentry alternative for teams that want self-hosted error tracking. Capture, group, and triage errors without sending data to third-party services.
+Drop-in Sentry alternative. Swap your DSN and errors flow to your own server. Real-time dashboard, Blake3 fingerprinting, webhook alerts — all in a 6MB Docker image.
 
-**Key features:** Sentry-compatible API · Self-hosted · Rust backend · SvelteKit 5 dashboard
+**Key features:**
+- **Sentry-compatible ingest** — Drop-in DSN swap, any Sentry SDK
+- **Multi-project support** — Web, mobile, API — isolated DSN per project
+- **Real-time dashboard** — SvelteKit 5 + Tailwind v4 + shadcn-svelte
+- **Blake3 fingerprinting** — Automatic error grouping and deduplication
+- **Alert rules** — Per-project condition-based webhooks with cooldown
+- **Full-text search** — SQLite FTS5 + trigram substring search
+- **OpenAPI docs** — Swagger UI at `/api/docs`
+- **MCP server** — 12 AI agent tools via stdio JSON-RPC
+- **Tiny Docker image** — 5.75MB (scratch + MUSL static binary)
 
-[View on GitHub →](https://github.com/codecoradev/trapfall)
-
-</div>
-
-<style>
-.project-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-</style>
+[Read the docs →](/docs/trapfall/) · [GitHub →](https://github.com/codecoradev/trapfall)

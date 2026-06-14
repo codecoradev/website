@@ -20,20 +20,20 @@ features:
   - icon: "🧠"
     title: "Uteke — Semantic Memory"
     details: "Offline-first semantic memory engine for AI agents. Single Rust binary, zero dependencies, 30ms recall. Fully offline, zero API keys."
-    link: https://uteke.codecora.dev
+    link: /docs/uteke/
     linkText: Read the docs
 
   - icon: "🔍"
     title: "Cora CLI — Code Review"
-    details: "CLI-first AI code review with BYOK. Supports diff, scan, branch modes and pre-commit hooks. 100% open source."
-    link: https://github.com/codecoradev/cora-cli
-    linkText: View on GitHub
+    details: "CLI-first AI code review with BYOK. Multi-LLM support, pre-commit hooks, SARIF output, deterministic scanners. 100% open source."
+    link: /docs/cora/
+    linkText: Read the docs
 
   - icon: "🪤"
     title: "TrapFall — Error Capture"
-    details: "Lightweight self-hosted error capture engine. Sentry-compatible API, built with Rust and SvelteKit 5."
-    link: https://github.com/codecoradev/trapfall
-    linkText: View on GitHub
+    details: "Lightweight self-hosted error capture engine. Sentry-compatible, Rust + SvelteKit 5 dashboard, Blake3 fingerprinting, 6MB Docker image."
+    link: /docs/trapfall/
+    linkText: Read the docs
 ---
 
 <style>
