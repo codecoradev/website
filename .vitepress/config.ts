@@ -7,7 +7,7 @@ export default defineConfig({
   cleanUrls: true,
   ignoreDeadLinks: true,
   head: [
-    ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/logo.png', type: 'image/png' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'Codecora — Developer Tools for AI Agents' }],
     ['meta', { property: 'og:description', content: 'Open-source tools that keep your data local, your agents smart, and your code clean.' }],
@@ -17,7 +17,7 @@ export default defineConfig({
     ['meta', { name: 'twitter:description', content: 'Open-source tools that keep your data local, your agents smart, and your code clean.' }],
   ],
   themeConfig: {
-    logo: '/favicon.svg',
+    logo: '/logo.png',
     nav: [
       { text: 'Projects', link: '/projects/' },
       {
