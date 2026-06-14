@@ -1,6 +1,6 @@
 # About Codecora
 
-Codecora builds open-source developer tools for the AI agent era.
+Codecora builds developer tools for the AI agent era — open-source at heart, with room to grow.
 
 ## Our Philosophy
 
@@ -8,7 +8,7 @@ Codecora builds open-source developer tools for the AI agent era.
 
 **Simple to start, powerful to scale.** Single binary installs, sensible defaults, and configurable enough for any workflow — from a solo dev to a team of AI agents.
 
-**Open source, always.** Every tool we build is MIT or Apache 2.0 licensed. No feature gates, no premium tiers, no vendor lock-in.
+**Open-source core.** Our tools are MIT or Apache 2.0 licensed. We believe in transparent, community-driven development — and we may offer paid tiers for teams and enterprise in the future.
 
 ## The Stack
 
