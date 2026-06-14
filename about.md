@@ -31,7 +31,6 @@ AI agents are getting powerful — but they're forgetful, blind, and noisy:
 ## Contact & Community
 
 - **GitHub**: [github.com/codecoradev](https://github.com/codecoradev)
-- **Discussions**: [github.com/codecoradev/uteke/discussions](https://github.com/codecoradev/uteke/discussions)
 
 ## License
 
