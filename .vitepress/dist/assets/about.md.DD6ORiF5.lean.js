@@ -1,0 +1,1 @@
+import{_ as a,o,c as t,a0 as s}from"./chunks/framework.Bogozrur.js";const u=JSON.parse('{"title":"About Codecora","description":"","frontmatter":{},"headers":[],"relativePath":"about.md","filePath":"about.md"}'),r={name:"about.md"};function n(i,e,l,c,p,d){return o(),t("div",null,[...e[0]||(e[0]=[s("",11)])])}const m=a(r,[["render",n]]);export{u as __pageData,m as default};
