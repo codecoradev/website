@@ -1,3 +1,39 @@
+---
+title: "Projects — Uteke, Cora CLI, TrapFall"
+description: "Explore Codecora's open-source developer tools: Uteke (semantic memory), Cora CLI (AI code review), and TrapFall (error capture). Built with Rust for AI agents."
+head:
+  - ['meta', { property: 'og:title', content: 'Codecora Projects — Open-Source Developer Tools for AI Agents' }]
+  - ['meta', { property: 'og:description', content: 'Uteke, Cora CLI, and TrapFall — open-source tools built with Rust for the AI agent era.' }]
+  - ['meta', { property: 'og:image', content: 'https://codecora.dev/logo.png' }]
+  - ['meta', { property: 'og:url', content: 'https://codecora.dev/projects/' }]
+  - ['script', { type: 'application/ld+json' }, JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Codecora Projects',
+    description: 'Open-source developer tools for AI agents',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Uteke — Offline-first semantic memory engine',
+        url: 'https://codecora.dev/docs/uteke/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Cora CLI — AI-powered code review',
+        url: 'https://codecora.dev/docs/cora/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'TrapFall — Self-hosted error capture',
+        url: 'https://codecora.dev/docs/trapfall/',
+      },
+    ],
+  })],
+---
+
 # Projects
 
 Open-source developer tools built for the AI agent era.

@@ -1,3 +1,13 @@
+---
+title: About Codecora
+description: "Codecora builds developer tools for AI agents — Rust-powered, open-source, offline-first. Learn about our mission, philosophy, and the tools we build."
+head:
+  - ['meta', { property: 'og:title', content: 'About Codecora — Developer Tools for AI Agents' }]
+  - ['meta', { property: 'og:description', content: 'Codecora builds developer tools for AI agents — Rust-powered, open-source, offline-first.' }]
+  - ['meta', { property: 'og:image', content: 'https://codecora.dev/logo.png' }]
+  - ['meta', { property: 'og:url', content: 'https://codecora.dev/about' }]
+---
+
 # About Codecora
 
 Codecora builds developer tools for the AI agent era — open-source at heart, with room to grow.
