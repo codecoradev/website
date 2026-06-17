@@ -17,24 +17,66 @@ hero:
       link: https://github.com/codecoradev
 
 features:
-  - icon: "🧠"
-    title: "Uteke — Semantic Memory"
-    details: "Offline-first semantic memory engine for AI agents. Single Rust binary, zero dependencies, 30ms recall. Fully offline, zero API keys."
-    link: /docs/uteke/
-    linkText: Read the docs
-
   - icon: "🔍"
     title: "Cora CLI — Code Review"
-    details: "CLI-first AI code review with BYOK. Multi-LLM support, pre-commit hooks, SARIF output, deterministic scanners. 100% open source."
-    link: /docs/cora/
-    linkText: Read the docs
+    details: "AI-powered code review with BYOK. Multi-LLM, pre-commit hooks, SARIF output, deterministic scanners, quality gates. 100% open source."
+    link: /projects/#cora-cli
+    linkText: Learn more
+
+  - icon: "🧠"
+    title: "Uteke — Semantic Memory"
+    details: "Offline-first semantic memory engine for AI agents. Hybrid vector + FTS search, 30ms recall. Fully offline, zero API keys."
+    link: /projects/#uteke
+    linkText: Learn more
 
   - icon: "🪤"
     title: "TrapFall — Error Capture"
-    details: "Lightweight self-hosted error capture engine. Sentry-compatible, Rust + SvelteKit 5 dashboard, Blake3 fingerprinting, 6MB Docker image."
-    link: /docs/trapfall/
-    linkText: Read the docs
+    details: "Lightweight self-hosted error capture. Sentry-compatible, Blake3 fingerprinting, real-time dashboard, 6MB Docker image."
+    link: /projects/#trapfall
+    linkText: Learn more
+
+  - icon: "💬"
+    title: "Rungu — Feedback Board"
+    details: "Self-hosted feedback collection board. Feature requests, bug reports, roadmap — simple, fast, no SaaS lock-in."
+    link: /projects/#rungu
+    linkText: Learn more
 ---
+
+<div style="text-align:center; margin: -1rem auto 2rem; max-width: 640px;">
+  <p style="color: var(--vp-c-text-2); margin-bottom: 0.5rem;">Quick start — install Cora CLI</p>
+  <code style="display:block; padding: 0.75rem 1rem; border-radius: 8px; background: var(--vp-c-bg-soft); font-size: 0.9rem; cursor: pointer; user-select: all;" onclick="navigator.clipboard.writeText(this.textContent.trim());const o=this.style.outline;this.style.outline='2px solid var(--vp-c-brand-1)';setTimeout(()=>{this.style.outline=o},800)" title="Click to copy">curl -fsSL https://raw.githubusercontent.com/codecoradev/cora-cli/main/install.sh | sh</code>
+</div>
+
+<div style="margin: 2rem auto; max-width: 960px;">
+  <h2 style="text-align: center; margin-bottom: 1.5rem;">Why Codecora?</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+
+    <div style="text-align: center; padding: 1rem;">
+      <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔒</div>
+      <h3 style="margin-bottom: 0.5rem;">Local-First</h3>
+      <p style="color: var(--vp-c-text-2); font-size: 0.95rem;">
+        Your data stays on your machine. Zero cloud dependency, zero API keys required. Works offline.
+      </p>
+    </div>
+
+    <div style="text-align: center; padding: 1rem;">
+      <div style="font-size: 2rem; margin-bottom: 0.5rem;">🦀</div>
+      <h3 style="margin-bottom: 0.5rem;">Rust-Powered</h3>
+      <p style="color: var(--vp-c-text-2); font-size: 0.95rem;">
+        Native speed, zero cold starts, tiny footprints. Single binary installs, cross-platform.
+      </p>
+    </div>
+
+    <div style="text-align: center; padding: 1rem;">
+      <div style="font-size: 2rem; margin-bottom: 0.5rem;">🧩</div>
+      <h3 style="margin-bottom: 0.5rem;">Composable</h3>
+      <p style="color: var(--vp-c-text-2); font-size: 0.95rem;">
+        Use any tool standalone, or combine them. Cora + Uteke = reviews that learn. TrapFall + Cora = full-cycle quality.
+      </p>
+    </div>
+
+  </div>
+</div>
 
 <style>
 :root {
