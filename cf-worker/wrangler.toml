@@ -24,6 +24,11 @@ binding = "TRAPFALL"
 service = "trapfall"
 entrypoint = "./.vitepress/server.js"
 
+[[services]]
+binding = "RUNGU"
+service = "rungu-docs"
+entrypoint = "./.vitepress/server.js"
+
 # Custom domain route
 [[routes]]
 pattern = "codecora.dev/*"
