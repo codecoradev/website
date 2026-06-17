@@ -42,43 +42,91 @@ features:
     linkText: Learn more
 ---
 
-<div style="text-align:center; margin: -1rem auto 2rem; max-width: 640px;">
-  <p style="color: var(--vp-c-text-2); margin-bottom: 0.5rem;">Quick start — install Cora CLI</p>
-  <code style="display:block; padding: 0.75rem 1rem; border-radius: 8px; background: var(--vp-c-bg-soft); font-size: 0.9rem; cursor: pointer; user-select: all;" onclick="navigator.clipboard.writeText(this.textContent.trim());const o=this.style.outline;this.style.outline='2px solid var(--vp-c-brand-1)';setTimeout(()=>{this.style.outline=o},800)" title="Click to copy">curl -fsSL https://raw.githubusercontent.com/codecoradev/cora-cli/main/install.sh | sh</code>
+<div class="install-bar">
+  <p>Quick start — install Cora CLI</p>
+  <code class="install-code" onclick="navigator.clipboard.writeText(this.textContent.trim());this.classList.add('copied');setTimeout(()=>this.classList.remove('copied'),800)" title="Click to copy">curl -fsSL https://raw.githubusercontent.com/codecoradev/cora-cli/main/install.sh | sh</code>
 </div>
 
-<div style="margin: 2rem auto; max-width: 960px;">
-  <h2 style="text-align: center; margin-bottom: 1.5rem;">Why Codecora?</h2>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+<div class="vp-doc">
 
-    <div style="text-align: center; padding: 1rem;">
-      <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔒</div>
-      <h3 style="margin-bottom: 0.5rem;">Local-First</h3>
-      <p style="color: var(--vp-c-text-2); font-size: 0.95rem;">
-        Your data stays on your machine. Zero cloud dependency, zero API keys required. Works offline.
-      </p>
-    </div>
+## Why Codecora?
 
-    <div style="text-align: center; padding: 1rem;">
-      <div style="font-size: 2rem; margin-bottom: 0.5rem;">🦀</div>
-      <h3 style="margin-bottom: 0.5rem;">Rust-Powered</h3>
-      <p style="color: var(--vp-c-text-2); font-size: 0.95rem;">
-        Native speed, zero cold starts, tiny footprints. Single binary installs, cross-platform.
-      </p>
-    </div>
-
-    <div style="text-align: center; padding: 1rem;">
-      <div style="font-size: 2rem; margin-bottom: 0.5rem;">🧩</div>
-      <h3 style="margin-bottom: 0.5rem;">Composable</h3>
-      <p style="color: var(--vp-c-text-2); font-size: 0.95rem;">
-        Use any tool standalone, or combine them. Cora + Uteke = reviews that learn. TrapFall + Cora = full-cycle quality.
-      </p>
-    </div>
-
+<div class="why-grid">
+  <div class="why-card">
+    <div class="why-icon">🔒</div>
+    <h3>Local-First</h3>
+    <p>Your data stays on your machine. Zero cloud dependency, zero API keys required. Works offline.</p>
+  </div>
+  <div class="why-card">
+    <div class="why-icon">🦀</div>
+    <h3>Rust-Powered</h3>
+    <p>Native speed, zero cold starts, tiny footprints. Single binary installs, cross-platform.</p>
+  </div>
+  <div class="why-card">
+    <div class="why-icon">🧩</div>
+    <h3>Composable</h3>
+    <p>Use any tool standalone, or combine them. Cora + Uteke = reviews that learn. TrapFall + Cora = full-cycle quality.</p>
   </div>
 </div>
 
+</div>
+
 <style>
+/* Install bar */
+.install-bar {
+  text-align: center;
+  margin: -1rem auto 2rem;
+  max-width: 640px;
+  padding: 0 1rem;
+}
+.install-bar p {
+  color: var(--vp-c-text-2);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+.install-code {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: var(--vp-c-bg-soft);
+  font-size: 0.85rem;
+  cursor: pointer;
+  user-select: all;
+  word-break: break-all;
+  transition: outline 0.2s;
+}
+.install-code.copied {
+  outline: 2px solid var(--vp-c-brand-1);
+}
+
+/* Why Codecora grid */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem auto;
+  max-width: 960px;
+  padding: 0 1rem;
+}
+.why-card {
+  text-align: center;
+  padding: 1rem;
+}
+.why-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.why-card h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.why-card p {
+  color: var(--vp-c-text-2);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Hero gradient */
 :root {
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #d97706 30%, #fbbf24);
