@@ -26,17 +26,20 @@ All of our tools are built with Rust for performance and reliability:
 
 | Project | Role | Why Rust? |
 |---|---|---|
-| **Uteke** | Semantic memory | 30ms recall, single binary, ONNX runtime |
 | **Cora CLI** | Code review | Native speed, zero cold starts, cross-platform |
+| **Cora Review Action** | CI/CD integration | GitHub Action wrapper for Cora CLI |
+| **Uteke** | Semantic memory | 30ms recall, single binary, ONNX runtime |
 | **TrapFall** | Error capture | Minimal footprint, 6MB Docker, MUSL static |
+| **Rungu** | Feedback board | Lightweight self-hosted, zero dependencies |
 
 ## The Problem We Solve
 
 AI agents are getting powerful — but they're forgetful, blind, and noisy:
 
-- **Agents forget context** across conversations → Uteke gives them persistent memory
 - **Code review is slow and expensive** → Cora makes it instant and configurable
+- **Agents forget context** across conversations → Uteke gives them persistent memory
 - **Error monitoring is bloated** → TrapFall fits in 6MB with full Sentry compatibility
+- **User feedback is scattered** → Rungu keeps it in one self-hosted place
 
 ## Contact & Community
 
@@ -46,6 +49,8 @@ AI agents are getting powerful — but they're forgetful, blind, and noisy:
 
 Each project has its own license:
 
-- **Uteke**: Apache 2.0
 - **Cora CLI**: MIT
+- **Cora Review Action**: MIT
+- **Uteke**: Apache 2.0
 - **TrapFall**: Apache 2.0
+- **Rungu**: MIT

@@ -41,6 +41,7 @@ export default defineConfig({
           { text: 'Uteke', link: 'https://codecora.dev/docs/uteke/' },
           { text: 'Cora CLI', link: 'https://codecora.dev/docs/cora/' },
           { text: 'TrapFall', link: 'https://codecora.dev/docs/trapfall/' },
+          { text: 'Rungu', link: 'https://github.com/codecoradev/rungu' },
         ],
       },
       { text: 'About', link: '/about' },
@@ -53,7 +54,7 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/codecoradev' },
     ],
     footer: {
-      message: 'Released under the Apache 2.0 and MIT Licenses.',
+      message: 'Built with Rust. Open source under Apache 2.0 and MIT.',
     },
   },
 })
