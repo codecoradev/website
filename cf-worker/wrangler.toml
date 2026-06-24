@@ -14,9 +14,10 @@ binding = "UTEKE"
 service = "uteke"
 entrypoint = "./.vitepress/server.js"
 
+# NOTE: service = "cora-cli" (NOT "cora" — that's a placeholder Pages project)
 [[services]]
 binding = "CORA"
-service = "cora"
+service = "cora-cli"
 entrypoint = "./.vitepress/server.js"
 
 [[services]]

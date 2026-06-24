@@ -1,52 +1,52 @@
-// Cloudflare Worker — codecora.dev router
+// Cloudflare Worker — codecora.dev router (service bindings version)
+// Alternative to worker/index.js. Deployed manually via deploy-website.yml
+// (workflow_dispatch). Auto-deploy uses worker/index.js (hostname-based).
+//
 // Routes:
-//   codecora.dev/               → CF Pages: codecora-dev (landing page)
-//   codecora.dev/docs/uteke/*   → CF Pages: uteke
-//   codecora.dev/docs/cora/*    → CF Pages: cora
-//   codecora.dev/docs/trapfall/* → CF Pages: trapfall
-//   codecora.dev/docs/rungu/*    → CF Pages: rungu
+//   codecora.dev/install              → 302 → uteke install.sh
+//   codecora.dev/install/uteke        → 302 → uteke install.sh
+//   codecora.dev/install/cora         → 302 → cora-cli install.sh
+//   codecora.dev/install/trapfall     → 302 → trapfall install.sh
+//   codecora.dev/                     → CF Pages service: codecora-dev
+//   codecora.dev/docs/uteke/*         → CF Pages service: uteke
+//   codecora.dev/docs/cora/*          → CF Pages service: cora
+//   codecora.dev/docs/trapfall/*      → CF Pages service: trapfall
+//   codecora.dev/docs/rungu/*         → CF Pages service: rungu-docs
+
+// ── Install script redirects (curl | sh compatible) ──
+const INSTALL_SCRIPTS = {
+  '/install':          'https://raw.githubusercontent.com/codecoradev/uteke/main/install.sh',
+  '/install/uteke':    'https://raw.githubusercontent.com/codecoradev/uteke/main/install.sh',
+  '/install/cora':     'https://raw.githubusercontent.com/codecoradev/cora-cli/main/install.sh',
+  '/install/trapfall': 'https://raw.githubusercontent.com/codecoradev/trapfall/main/install.sh',
+};
+
+// ── Docs routes → CF Pages service bindings ──
+const ROUTES = [
+  { prefix: '/docs/uteke',    binding: 'UTEKE' },
+  { prefix: '/docs/cora',     binding: 'CORA' },
+  { prefix: '/docs/trapfall', binding: 'TRAPFALL' },
+  { prefix: '/docs/rungu',    binding: 'RUNGU' },
+];
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    // ── Install redirects (curl | sh compatible) ──
-    //   codecora.dev/install           → uteke install.sh
-    //   codecora.dev/install/uteke      → uteke install.sh
-    //   codecora.dev/install/cora       → cora-cli install.sh
-    //   codecora.dev/install/trapfall   → trapfall install.sh
-    const INSTALL_SCRIPTS = {
-      '/install':         'https://raw.githubusercontent.com/codecoradev/uteke/main/install.sh',
-      '/install/uteke':   'https://raw.githubusercontent.com/codecoradev/uteke/main/install.sh',
-      '/install/cora':    'https://raw.githubusercontent.com/codecoradev/cora-cli/main/install.sh',
-      '/install/trapfall':'https://raw.githubusercontent.com/codecoradev/trapfall/main/install.sh',
-    };
+    // Install redirects
     if (path in INSTALL_SCRIPTS) {
       return Response.redirect(INSTALL_SCRIPTS[path], 302);
     }
 
-    // Route: /docs/uteke/* → uteke CF Pages
-    if (path.startsWith('/docs/uteke')) {
-      return env.UTEKE.fetch(request);
+    // Find matching docs route (longest prefix match)
+    for (const { prefix, binding } of ROUTES) {
+      if (path.startsWith(prefix) || path.startsWith(prefix + '/')) {
+        return env[binding].fetch(request);
+      }
     }
 
-    // Route: /docs/cora/* → cora CF Pages
-    if (path.startsWith('/docs/cora')) {
-      return env.CORA.fetch(request);
-    }
-
-    // Route: /docs/trapfall/* → trapfall CF Pages
-    if (path.startsWith('/docs/trapfall')) {
-      return env.TRAPFALL.fetch(request);
-    }
-
-    // Route: /docs/rungu/* → rungu CF Pages
-    if (path.startsWith('/docs/rungu')) {
-      return env.RUNGU.fetch(request);
-    }
-
-    // Route: /docs/* (no matching project) → 404
+    // /docs/* with no matching project → 404
     if (path.startsWith('/docs')) {
       return new Response('Not Found', { status: 404 });
     }
