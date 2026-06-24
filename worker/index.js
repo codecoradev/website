@@ -24,12 +24,11 @@ const INSTALL_SCRIPTS = {
 // ── Docs routes → CF Pages subdomains ──
 // NOTE: cora-cli.pages.dev (NOT cora.pages.dev — that's a placeholder)
 // NOTE: rungu-docs.pages.dev (NOT rungu.pages.dev — that's spam)
-// stripPrefix: true → rewrite path before proxying (for docs with base='/')
 const ROUTES = {
-  '/docs/uteke':    { host: 'uteke.pages.dev' },
-  '/docs/cora':     { host: 'cora-cli.pages.dev' },
-  '/docs/trapfall': { host: 'trapfall.pages.dev' },
-  '/docs/rungu':    { host: 'rungu-docs.pages.dev', stripPrefix: true },
+  '/docs/uteke':    'uteke.pages.dev',
+  '/docs/cora':     'cora-cli.pages.dev',
+  '/docs/trapfall': 'trapfall.pages.dev',
+  '/docs/rungu':    'rungu-docs.pages.dev',
 };
 
 const LANDING_PAGE = 'codecora-dev.pages.dev';
@@ -47,12 +46,10 @@ export default {
     // Find matching docs route (longest prefix match)
     let target = null;
     let matchedPrefix = '';
-    let stripPrefix = false;
-    for (const [prefix, cfg] of Object.entries(ROUTES)) {
+    for (const [prefix, host] of Object.entries(ROUTES)) {
       if (path.startsWith(prefix) || path.startsWith(prefix + '/')) {
         if (prefix.length > matchedPrefix.length) {
-          target = cfg.host;
-          stripPrefix = !!cfg.stripPrefix;
+          target = host;
           matchedPrefix = prefix;
         }
       }
@@ -65,11 +62,6 @@ export default {
 
     // Default: landing page or matched docs subdomain
     url.hostname = target || LANDING_PAGE;
-
-    // Rewrite path for docs served at root (base='/')
-    if (stripPrefix && matchedPrefix) {
-      url.pathname = path.slice(matchedPrefix.length) || '/';
-    }
 
     return fetch(new Request(url.toString(), request));
   },
