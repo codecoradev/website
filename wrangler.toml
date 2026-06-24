@@ -1,3 +1,6 @@
+# Codecora router worker — AUTO-DEPLOYED via deploy-worker.yml on push to worker/**
+# This is the live worker. cf-worker/ is an alternative (service-bindings) version
+# that deploys only manually.
 name = "codecora-router"
 main = "worker/index.js"
 compatibility_date = "2024-01-01"
