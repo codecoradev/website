@@ -11,6 +11,21 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
+    // ── Install redirects (curl | sh compatible) ──
+    //   codecora.dev/install           → uteke install.sh
+    //   codecora.dev/install/uteke      → uteke install.sh
+    //   codecora.dev/install/cora       → cora-cli install.sh
+    //   codecora.dev/install/trapfall   → trapfall install.sh
+    const INSTALL_SCRIPTS = {
+      '/install':         'https://raw.githubusercontent.com/codecoradev/uteke/main/install.sh',
+      '/install/uteke':   'https://raw.githubusercontent.com/codecoradev/uteke/main/install.sh',
+      '/install/cora':    'https://raw.githubusercontent.com/codecoradev/cora-cli/main/install.sh',
+      '/install/trapfall':'https://raw.githubusercontent.com/codecoradev/trapfall/main/install.sh',
+    };
+    if (path in INSTALL_SCRIPTS) {
+      return Response.redirect(INSTALL_SCRIPTS[path], 302);
+    }
+
     // Route: /docs/uteke/* → uteke CF Pages
     if (path.startsWith('/docs/uteke')) {
       return env.UTEKE.fetch(request);

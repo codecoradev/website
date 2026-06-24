@@ -18,6 +18,17 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
+    // ── Install redirects (curl | sh compatible) ──
+    const INSTALL_SCRIPTS = {
+      '/install':          'https://raw.githubusercontent.com/codecoradev/uteke/main/install.sh',
+      '/install/uteke':    'https://raw.githubusercontent.com/codecoradev/uteke/main/install.sh',
+      '/install/cora':     'https://raw.githubusercontent.com/codecoradev/cora-cli/main/install.sh',
+      '/install/trapfall': 'https://raw.githubusercontent.com/codecoradev/trapfall/main/install.sh',
+    };
+    if (path in INSTALL_SCRIPTS) {
+      return Response.redirect(INSTALL_SCRIPTS[path], 302);
+    }
+
     // Find matching route (longest prefix match)
     let target = null;
     let matchedPrefix = '';
